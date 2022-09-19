@@ -1,0 +1,122 @@
+/* Layout */
+body {
+    background: #fff;
+}
+.switch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+}
+
+/* Button */
+.toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+#labelClass{
+    display: inline-block;
+}
+
+.toggle + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    padding: 2px;
+    width: 80px;
+    height: 40px;
+    background-color: #dddddd;
+    border-radius: 40px;
+}
+
+.toggle + label:before,
+.toggle + label:after {
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    content: "";
+}
+.toggle + label:before {
+    right: 1px;
+    background-color: #f1f1f1;
+    border-radius: 40px;
+    transition: background 0.4s;
+}
+.toggle + label:after {
+    width: 40px;
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: margin 0.4s;
+}
+.toggle:checked + label:before {
+    background-color: #8ce196;
+}
+.toggle:checked + label:after {
+    margin-left: 42px;
+}
+
+
+
+ /* Padlock */
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  cursor: pointer;
+  text-align: center;
+}
+.lock-top{
+  fill: none;
+  stroke: #02ac1e;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 300;
+  stroke-dashoffset: -30;
+  transition: all 300ms ease-out;
+}
+.lock-top.loaded {
+  stroke-dashoffset: 0;
+  stroke: #fa113d
+}
+.lock-top.loaded ~ .lock-body {
+  fill: #fa113d;
+}
+.lock-top.loading {
+  stroke: #000;
+  opacity: 0.3;
+}
+
+.lock-outline{
+  fill: #fff;
+}
+.lock-body {
+  fill: #02ac1e;
+  opacity: 1;
+  transition: all 300ms ease-out;
+}
+.lock-body.loading{
+  fill: #000 !important;
+  opacity: 0.3;
+}
+
+.lock-spinner {
+  fill: none;
+  stroke: #000;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.lock-spinner.loading{
+  opacity: 1;
+}
